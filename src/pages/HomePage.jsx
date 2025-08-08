@@ -4,6 +4,7 @@ import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
 import NewsCard from "../components/newsCard/NewsCard";
+import SocialLLogin from "../components/socialLogin/SocialLLogin";
 
 const HomePage = () => {
   return (
@@ -28,7 +29,9 @@ const HomePage = () => {
           <NewsCard />
           <NewsCard />
         </div>
-        <div className="lg:col-span-1 bg-blue-600 h-[1350px]">d</div>
+        <div className="lg:col-span-1 px-5 h-[1350px]">
+          <SocialLLogin />
+        </div>
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
 import NewsCard from "../components/newsCard/NewsCard";
 import SocialLLogin from "../components/socialLogin/SocialLLogin";
+import FindUsOn from "../components/findUsOn/FindUsOn";
 
 const HomePage = () => {
   return (
@@ -31,6 +32,7 @@ const HomePage = () => {
         </div>
         <div className="lg:col-span-1 px-5 h-[1350px]">
           <SocialLLogin />
+          <FindUsOn />
         </div>
       </div>
     </>

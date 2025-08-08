@@ -1,7 +1,7 @@
 const Category = () => {
   return (
     <>
-      <ul className="menu bg-base-200 rounded-box w-full">
+      <ul className="menu rounded-box w-full">
         <li className="menu-title">All Category</li>
         <li>
           <a>National News</a>

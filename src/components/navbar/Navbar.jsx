@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Navbar = () => {
   const menus = (
     <>
@@ -58,7 +60,9 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <a className="btn bg-[#403F3F] text-white px-10">Login</a>
+          <Link to={"login"} className="btn bg-[#403F3F] text-white px-10">
+            Login
+          </Link>
         </div>
       </div>
     </>

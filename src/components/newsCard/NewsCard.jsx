@@ -1,10 +1,10 @@
 import { IoBookmarkOutline, IoShareSocialOutline } from "react-icons/io5";
-import newsImg from "../../assets/editorsInsight1.png";
 import { FaStar } from "react-icons/fa";
 import { IoMdEye } from "react-icons/io";
 import { Link } from "react-router";
 
-const NewsCard = () => {
+const NewsCard = ({ news }) => {
+  console.log(news);
   return (
     <>
       <Link to={"/news-details"}>
@@ -13,12 +13,12 @@ const NewsCard = () => {
             <div className="flex items-center gap-2">
               <div className="avatar">
                 <div className="ring-primary w-10 h-10 ring-offset-base-100 rounded-full ring-2 ring-offset-2">
-                  <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                  <img src={news?.author?.img} />
                 </div>
               </div>
               <div>
-                <p className="text-xs font-bold">Awlad Hossain</p>
-                <p className="text-xs">2022-08-21</p>
+                <p className="text-xs font-bold">{news?.author?.name}</p>
+                <p className="text-xs">{news?.author?.published_date}</p>
               </div>
             </div>
             <div className="flex gap-2 items-center">
@@ -27,17 +27,11 @@ const NewsCard = () => {
             </div>
           </div>
           <div className="p-5">
-            <h1 className="font-bold">
-              Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S.
-              Military Aid Package Yet
-            </h1>
-            <img src={newsImg} alt="" className="w-full my-3" />
+            <h1 className="font-bold">{news?.title}</h1>
+            <img src={news?.thumbnail_url} alt="" className="w-full my-3" />
             <p className="text-[#706F6F] text-sm text-justify my-3">
-              Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro,
-              Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine,
-              United States, Worthy News (Worthy News) – U.S. President Joe
-              Biden has announced nearly $3 billion in new U.S. military a...{" "}
-              <span className="text-[#FF8C47]">Read More</span>
+              {news?.details.slice(0, 200)}
+              ... <span className="text-[#FF8C47]">Read More</span>
             </p>
             <div className="flex justify-between py-3 border-t-1 border-base-300">
               <div className="flex  items-center gap-1">
@@ -46,11 +40,11 @@ const NewsCard = () => {
                 <FaStar className="text-[#FF8C47]" />
                 <FaStar className="text-[#FF8C47]" />
                 <FaStar className="text-[#FF8C47]" />
-                4.9
+                {news?.rating?.number}
               </div>
               <div className="flex gap-2 items-center">
                 <IoMdEye />
-                499
+                {news?.total_view}
               </div>
             </div>
           </div>

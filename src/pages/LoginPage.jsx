@@ -32,7 +32,7 @@ const LoginPage = () => {
         </form>
         <p className="text-center text-xs mt-5 font-semibold">
           Dont’t Have An Account ?{" "}
-          <Link to={"/sign"} className="text-[#FF8C47]">
+          <Link to={"/register"} className="text-[#FF8C47]">
             Register
           </Link>
         </p>

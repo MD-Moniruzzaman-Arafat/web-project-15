@@ -60,7 +60,7 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <Link to={"login"} className="btn bg-[#403F3F] text-white px-10">
+          <Link to={"/login"} className="btn bg-[#403F3F] text-white px-10">
             Login
           </Link>
         </div>

@@ -6,6 +6,8 @@ import img3 from "../assets/3.png";
 import NewsCard from "../components/newsCard/NewsCard";
 import SocialLLogin from "../components/socialLogin/SocialLLogin";
 import FindUsOn from "../components/findUsOn/FindUsOn";
+import QZone from "../components/qZone/QZone";
+import Ads from "../components/ads/Ads";
 
 const HomePage = () => {
   return (
@@ -19,7 +21,7 @@ const HomePage = () => {
             <SmallCard img={img3} />
           </div>
         </div>
-        <div className="lg:col-span-2  overflow-y-scroll h-[1350px]">
+        <div className="lg:col-span-2  overflow-y-scroll h-[1600px]">
           <h1 className="font-semibold py-3 text-gray-400">Dragon News Home</h1>
           <NewsCard />
           <NewsCard />
@@ -33,6 +35,8 @@ const HomePage = () => {
         <div className="lg:col-span-1 px-5 h-[1350px]">
           <SocialLLogin />
           <FindUsOn />
+          <QZone />
+          <Ads />
         </div>
       </div>
     </>

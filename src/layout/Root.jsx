@@ -5,10 +5,14 @@ import Navbar from "../components/navbar/Navbar";
 
 const Root = () => {
   const pathLocation = useLocation();
-  console.log(pathLocation.pathname);
   return (
     <>
-      {pathLocation.pathname === "/" ? <Title /> : ""}
+      {pathLocation.pathname === "/" ||
+      pathLocation.pathname === "/news-details" ? (
+        <Title />
+      ) : (
+        ""
+      )}
       {pathLocation.pathname === "/" ? <MarqueeText /> : ""}
       {/* <Title /> */}
       {/* <MarqueeText /> */}

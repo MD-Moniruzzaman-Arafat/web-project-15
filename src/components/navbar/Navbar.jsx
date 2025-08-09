@@ -4,7 +4,7 @@ const Navbar = () => {
   const menus = (
     <>
       <li>
-        <a>Home</a>
+        <Link to={"/"}>Home</Link>
       </li>
       <li>
         <a>About</a>

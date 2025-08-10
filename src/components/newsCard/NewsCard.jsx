@@ -2,12 +2,14 @@ import { IoBookmarkOutline, IoShareSocialOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { IoMdEye } from "react-icons/io";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { NewsDetailsContext } from "../../context";
 
 const NewsCard = ({ news }) => {
-  console.log(news);
+  const { setNewsDetails } = useContext(NewsDetailsContext);
   return (
     <>
-      <Link to={"/news-details"}>
+      <Link to={"/news-details"} onClick={() => setNewsDetails(news)}>
         <div className="border border-base-300 my-5">
           <div className="bg-base-300 flex justify-between p-5">
             <div className="flex items-center gap-2">

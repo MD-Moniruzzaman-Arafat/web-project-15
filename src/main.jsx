@@ -4,11 +4,14 @@ import "./index.css";
 import { RouterProvider } from "react-router";
 import routes from "./routes/Router.jsx";
 import NewsContextProvider from "./context/NewsContextProvider.jsx";
+import NewsDetailsContextProvider from "./context/NewsDetailsContextProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <NewsContextProvider>
-      <RouterProvider router={routes} />
+      <NewsDetailsContextProvider>
+        <RouterProvider router={routes} />
+      </NewsDetailsContextProvider>
     </NewsContextProvider>
   </StrictMode>
 );

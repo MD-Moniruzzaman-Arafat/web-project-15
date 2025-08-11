@@ -11,6 +11,7 @@ import auth from "../firebase/firebaseConfiq";
 const AuthContextProvider = ({ children }) => {
   const [authData, setAuthData] = useState(null);
   const [isRegister, setIsRegister] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   function createUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -29,6 +30,7 @@ const AuthContextProvider = ({ children }) => {
       if (user) {
         if (isRegister) return;
         setAuthData(user);
+        setLoading(false);
       } else {
         // User is signed out
         // ...
@@ -39,6 +41,20 @@ const AuthContextProvider = ({ children }) => {
       unSubscribe();
     };
   }, [isRegister]);
+
+  if (loading) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div>
+          <span className="loading loading-ball loading-xs"></span>
+          <span className="loading loading-ball loading-sm"></span>
+          <span className="loading loading-ball loading-md"></span>
+          <span className="loading loading-ball loading-lg"></span>
+          <span className="loading loading-ball loading-xl"></span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -51,6 +67,7 @@ const AuthContextProvider = ({ children }) => {
           createUser,
           signInUser,
           logOutUser,
+          setLoading,
         }}
       >
         {children}

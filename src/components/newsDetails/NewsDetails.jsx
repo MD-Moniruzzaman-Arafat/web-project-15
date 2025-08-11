@@ -1,10 +1,26 @@
 import { GoArrowLeft } from "react-icons/go";
 import EditorsInsight from "../editorsInsight/EditorsInsight";
-import { useContext } from "react";
-import { NewsDetailsContext } from "../../context";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { fetchNews } from "../../fetchData";
 
 const NewsDetails = () => {
-  const { newsDetails } = useContext(NewsDetailsContext);
+  const [newsDetails, setNewsDetails] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    let isMount = true;
+    async function loadNews() {
+      const newsData = await fetchNews();
+      const find = newsData.find((n) => n._id === id);
+      if (isMount) {
+        setNewsDetails(find);
+      }
+    }
+    loadNews();
+    return () => {
+      isMount = false;
+    };
+  }, [id]);
   console.log(newsDetails);
   return (
     <>

@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
             element: <CategoryAndNewsSection />,
           },
           {
-            path: "/news-details",
+            path: "/news-details/:id",
             element: (
               <PrivateRoute>
                 {" "}

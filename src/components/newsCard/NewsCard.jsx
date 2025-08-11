@@ -7,9 +7,13 @@ import { NewsDetailsContext } from "../../context";
 
 const NewsCard = ({ news }) => {
   const { setNewsDetails } = useContext(NewsDetailsContext);
+  console.log(news);
   return (
     <>
-      <Link to={"/news-details"} onClick={() => setNewsDetails(news)}>
+      <Link
+        to={`/news-details/${news?._id}`}
+        onClick={() => setNewsDetails(news)}
+      >
         <div className="border border-base-300 my-5">
           <div className="bg-base-300 flex justify-between p-5">
             <div className="flex items-center gap-2">

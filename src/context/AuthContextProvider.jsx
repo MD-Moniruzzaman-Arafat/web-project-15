@@ -28,11 +28,15 @@ const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        if (isRegister) return;
+        if (isRegister) {
+          return;
+        }
+
         setAuthData(user);
         setLoading(false);
       } else {
         // User is signed out
+        setLoading(false);
         // ...
       }
     });

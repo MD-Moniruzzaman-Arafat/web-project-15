@@ -9,7 +9,6 @@
 - Marquee breaking news section
 - Editors Insight and Q-Zone sections
 - Social login options
-- Bookmark and share news features
 - News rating and view count display
 - Dynamic data loading from JSON (news, categories)
 - Protected/private routes for authenticated users

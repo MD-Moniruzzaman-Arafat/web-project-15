@@ -1,13 +1,29 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # web-project-15
+
+## Features
+
+- Modern news portal UI with category-based filtering
+- News listing and detailed news view
+- User authentication (register, login, logout) with Firebase
+- Responsive navbar and layout
+- Marquee breaking news section
+- Editors Insight and Q-Zone sections
+- Social login options
+- Bookmark and share news features
+- News rating and view count display
+- Dynamic data loading from JSON (news, categories)
+- Protected/private routes for authenticated users
+- Clean, responsive design with Tailwind CSS and DaisyUI
+
+## Used Technologies
+
+- React 19
+- Vite
+- React Router v7
+- Firebase Authentication
+- Axios
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- React Fast Marquee
+- ESLint (with React Hooks and Refresh plugins)

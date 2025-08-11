@@ -1,8 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { fetchNewsBasedOnCategory } from "../../fetchData";
+import { NewsContext } from "../../context";
 
 const Category = () => {
   const [category, setCategory] = useState([]);
+  const { setNews } = useContext(NewsContext);
+
+  async function handleFilterData(id) {
+    const filter = await fetchNewsBasedOnCategory(id);
+    setNews(filter);
+  }
 
   useEffect(() => {
     let isMount = true;
@@ -24,7 +32,7 @@ const Category = () => {
       <ul className="menu rounded-box w-full">
         <li className="menu-title">All Category</li>
         {category?.map((cat) => (
-          <li key={cat?.id}>
+          <li onClick={() => handleFilterData(cat?.id)} key={cat?.id}>
             <a>{cat?.name}</a>
           </li>
         ))}

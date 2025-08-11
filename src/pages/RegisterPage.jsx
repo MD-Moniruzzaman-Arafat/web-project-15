@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebaseConfiq";
@@ -12,10 +12,13 @@ const RegisterPage = () => {
     password: "",
     isChecked: false,
   });
-  const { createUser } = useContext(AuthContext);
+  const { createUser, setIsRegister } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
+    setIsRegister(true);
     setRegisterData({
       ...registerData,
       [name]: type === "checkbox" ? checked : value,
@@ -26,7 +29,7 @@ const RegisterPage = () => {
     e.preventDefault();
 
     createUser(registerData.email, registerData.password)
-      .then(() => {
+      .then((user) => {
         updateProfile(auth.currentUser, {
           displayName: registerData.userName,
           photoURL: registerData.photoUrl,
@@ -35,10 +38,13 @@ const RegisterPage = () => {
             // Profile updated!
             // ...
           })
-          .catch((error) => {
+          .catch(() => {
             // An error occurred
             // ...
           });
+        if (user.user) {
+          navigate("/login");
+        }
       })
       .catch((error) => {
         console.log(error.message);

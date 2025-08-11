@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import CategoryAndNewsSection from "../components/categoryAndNewsSection/CategoryAndNewsSection";
 import NewsDetails from "../components/newsDetails/NewsDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -21,7 +22,12 @@ const routes = createBrowserRouter([
           },
           {
             path: "/news-details",
-            element: <NewsDetails />,
+            element: (
+              <PrivateRoute>
+                {" "}
+                <NewsDetails />
+              </PrivateRoute>
+            ),
           },
         ],
       },

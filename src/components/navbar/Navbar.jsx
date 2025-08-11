@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../../context";
 
 const Navbar = () => {
+  const { authData, setAuthData, logOutUser } = useContext(AuthContext);
+
+  function handleLogOut() {
+    logOutUser()
+      .then(() => {
+        setAuthData("");
+        console.log(authData);
+      })
+      .catch(() => {});
+  }
+
   const menus = (
     <>
       <li>
@@ -56,13 +69,26 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                src={
+                  authData?.photoURL
+                    ? authData.photoURL
+                    : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                }
               />
             </div>
           </div>
-          <Link to={"/login"} className="btn bg-[#403F3F] text-white px-10">
-            Login
-          </Link>
+          {authData ? (
+            <Link
+              onClick={handleLogOut}
+              className="btn bg-[#403F3F] text-white px-10"
+            >
+              Log out
+            </Link>
+          ) : (
+            <Link to={"/login"} className="btn bg-[#403F3F] text-white px-10">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>
